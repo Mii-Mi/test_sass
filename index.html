@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tutoriel SASS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="ressources/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="headerTop">
+            <p class="logo"><img src="ressources/images/sass-logo-2.png" alt="logo sass" /></p>
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">Home</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        
+        <h1>Tutoriel SASS</h1>
+    </header>
+    <section>
+        <h2>installer SASS</h2>
+        <h3>Sur Ubuntu</h3>
+        <p>
+            Installer ruby : <br />
+            <span class="code">sudo apt install ruby</span>
+        </p>
+        <p>
+            Installer ruby-sass :<br />
+            <span class="code">sudo apt-install ruby-sass</span>
+        </p>
+        <h3>Sur MacOs</h3>
+        <p>
+            Ruby est nativement installé, il suffit donc d'installer SASS :<br />
+            <span class="code">gem install sass</span>
+        </p>
+        <h3>Sur Windows</h3>
+        <p>
+            Installer ruby :<br />
+            <span class="instLink">Utilisez <a href="https://rubyinstaller.org/">ruby installer</a></span>
+        </p>
+        <p>
+            Installer SASS :<br />
+            <span class="code">gem install sass</span>
+        </p>
+    </section>
+    <section>
+        <h2>Compiler un fichier .scss en .css</h2>
+        <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss.<br />
+            Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande :<br />
+            <span class="code">sass --watch style.scss:style.css</span>
+        </p>
+    </section>
+</body>
+</html>

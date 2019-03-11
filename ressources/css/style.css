@@ -1,0 +1,38 @@
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.topnav {
+  overflow: hidden;
+  margin-left: 15px; }
+  .topnav a {
+    float: left;
+    display: block;
+    color: #be608b;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px; }
+    .topnav a :hover {
+      background-color: #ddd;
+      color: black; }
+  .topnav .icon {
+    display: none; }
+
+.active {
+  background-color: #be608b;
+  color: white !important; }
+
+.logo img {
+  max-width: 150px; }
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none; }
+
+  .topnav a.icon {
+    float: right;
+    display: block; } }
+
+/*# sourceMappingURL=style.css.map */
