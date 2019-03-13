@@ -1,10 +1,58 @@
 @import "variables.scss";
+@import "responsive.scss";
 
-.headerTop{
+.cont1{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: [row-1-start] auto [row-1-end row-2-start] auto [row-2-end row-3-start] auto [row-3-end row-4-start] auto [row-4-end];
+    grid-template-areas: "header"
+                         "install"
+                         "tuto";
+    grid-gap: 1.5em;
+}
+.cont2{
+    grid-area: install;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: [row1start] auto [row1end row2start] auto [row2end];
+    grid-template-areas: "title title title"
+                         "linux mac windows";
+    grid-gap: 1.5em;
+    overflow: hidden;
+    h2{
+        grid-area: title;
+        margin: auto;
+        padding: 15px;
+        background-color: rgba($pinklogo, 0.5);
+        text-align: center;
+        width: 100%;
+    }
+    .os{
+        text-align: center;
+    }
+    .linux{
+        @extend .os;
+        grid-area: linux;
+    }
+    .mac{
+        @extend .os;
+        grid-area: mac
+    }
+    .windows{
+        @extend .os;
+        grid-area: windows;
+    }
+}
+header{
+    grid-area: header;
+    .headerTop{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 25px;
+    }
 }
+
 .topnav{
     overflow: hidden;
     margin-left: 15px;
@@ -30,18 +78,8 @@
     color: white !important;
 }
 .logo img{
-    max-width: 150px;
+    max-width: 130px;
 }
-
-@media screen and (max-width: 600px){
-    .topnav{
-        a:not(:first-child){
-                display: none;
-            }
-        a.icon{
-            float: right;
-            display: block;
-        }
-    } 
-    
+.tuto{
+    grid-area: tuto;
 }

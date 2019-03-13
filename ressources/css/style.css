@@ -1,37 +1,92 @@
-.headerTop {
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+.cont1 {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: [row-1-start] auto [row-1-end row-2-start] auto [row-2-end row-3-start] auto [row-3-end row-4-start] auto [row-4-end];
+  grid-template-areas: "header" "install" "tuto";
+  grid-gap: 1.5em;
+}
+
+.cont2 {
+  grid-area: install;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: [row1start] auto [row1end row2start] auto [row2end];
+  grid-template-areas: "title title title" "linux mac windows";
+  grid-gap: 1.5em;
+  overflow: hidden;
+}
+.cont2 h2 {
+  grid-area: title;
+  margin: auto;
+  padding: 15px;
+  background-color: rgba(190, 96, 139, 0.5);
+  text-align: center;
+  width: 100%;
+}
+.cont2 .os, .cont2 .windows, .cont2 .mac, .cont2 .linux {
+  text-align: center;
+}
+.cont2 .linux {
+  grid-area: linux;
+}
+.cont2 .mac {
+  grid-area: mac;
+}
+.cont2 .windows {
+  grid-area: windows;
+}
+
+header {
+  grid-area: header;
+}
+header .headerTop {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 10px 25px;
+}
 
 .topnav {
   overflow: hidden;
-  margin-left: 15px; }
-  .topnav a {
-    float: left;
-    display: block;
-    color: #be608b;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px; }
-    .topnav a :hover {
-      background-color: #ddd;
-      color: black; }
-  .topnav .icon {
-    display: none; }
+  margin-left: 15px;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #be608b;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a :hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav .icon {
+  display: none;
+}
 
 .active {
   background-color: #be608b;
-  color: white !important; }
+  color: white !important;
+}
 
 .logo img {
-  max-width: 150px; }
+  max-width: 130px;
+}
 
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {
-    display: none; }
-  .topnav a.icon {
-    float: right;
-    display: block; } }
+.tuto {
+  grid-area: tuto;
+}
 
 /*# sourceMappingURL=style.css.map */

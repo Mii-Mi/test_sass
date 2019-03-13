@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="ressources/css/style.css">
 </head>
-<body>
+<body class="cont1">
     <header>
         <div class="headerTop">
             <p class="logo"><img src="ressources/images/sass-logo-2.png" alt="logo sass" /></p>
@@ -26,33 +26,39 @@
         
         <h1>Tutoriel SASS</h1>
     </header>
-    <section>
+    <section class="cont2">
         <h2>installer SASS</h2>
-        <h3>Sur Ubuntu</h3>
-        <p>
-            Installer ruby : <br />
-            <span class="code">sudo apt install ruby</span>
-        </p>
-        <p>
-            Installer ruby-sass :<br />
-            <span class="code">sudo apt-install ruby-sass</span>
-        </p>
-        <h3>Sur MacOs</h3>
-        <p>
-            Ruby est nativement installé, il suffit donc d'installer SASS :<br />
-            <span class="code">gem install sass</span>
-        </p>
-        <h3>Sur Windows</h3>
-        <p>
-            Installer ruby :<br />
-            <span class="instLink">Utilisez <a href="https://rubyinstaller.org/">ruby installer</a></span>
-        </p>
-        <p>
-            Installer SASS :<br />
-            <span class="code">gem install sass</span>
-        </p>
+        <div class="linux">
+            <h3>Sur Ubuntu</h3>
+            <p>
+                Installer ruby : <br />
+                <span class="code">sudo apt install ruby</span>
+            </p>
+            <p>
+                Installer ruby-sass :<br />
+                <span class="code">sudo apt-install ruby-sass</span>
+            </p>
+        </div>
+        <div class="mac">
+            <h3>Sur MacOs</h3>
+            <p>
+                Ruby est nativement installé, il suffit donc d'installer SASS :<br />
+                <span class="code">gem install sass</span>
+            </p>
+        </div>
+        <div class="windows">
+            <h3>Sur Windows</h3>
+            <p>
+                Installer ruby :<br />
+                <span class="instLink">Utilisez <a href="https://rubyinstaller.org/">ruby installer</a></span>
+            </p>
+            <p>
+                Installer SASS :<br />
+                <span class="code">gem install sass</span>
+            </p>
+        </div>
     </section>
-    <section>
+    <section class="tuto">
         <h2>Compiler un fichier .scss en .css</h2>
         <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss.<br />
             Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande :<br />
