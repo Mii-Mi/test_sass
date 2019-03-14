@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tutoriel SASS</title>
+    <title>Tutoriel Sass</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="ressources/css/style.css">
+    <script src="ressources/js/sidebar.js"></script>
 </head>
 <body class="cont1">
     <header>
         <div class="headerTop">
             <p class="logo"><img src="ressources/images/sass-logo-2.png" alt="logo sass" /></p>
+            <h1>Tutoriel Sass</h1>
             <div class="topnav" id="myTopnav">
                 <a href="#home" class="active">Home</a>
                 <a href="#news">News</a>
@@ -23,47 +25,71 @@
                 </a>
             </div>
         </div>
-        
-        <h1>Tutoriel SASS</h1>
     </header>
     <section class="cont2">
         <h2>installer SASS</h2>
         <div class="linux">
             <h3>Sur Ubuntu</h3>
-            <p>
-                Installer ruby : <br />
-                <span class="code">sudo apt install ruby</span>
-            </p>
-            <p>
-                Installer ruby-sass :<br />
-                <span class="code">sudo apt-install ruby-sass</span>
-            </p>
+            <p>Installer ruby : </p>
+            <p class="code">sudo apt install ruby</p>
+            <p>Installer ruby-sass :</p>
+            <p class="code">sudo apt-install ruby-sass</p>
         </div>
         <div class="mac">
             <h3>Sur MacOs</h3>
-            <p>
-                Ruby est nativement installé, il suffit donc d'installer SASS :<br />
-                <span class="code">gem install sass</span>
-            </p>
+            <p>Ruby est nativement installé, il suffit donc d'installer SASS :</p>
+            <p class="code">gem install sass</p>
         </div>
         <div class="windows">
             <h3>Sur Windows</h3>
-            <p>
-                Installer ruby :<br />
-                <span class="instLink">Utilisez <a href="https://rubyinstaller.org/">ruby installer</a></span>
-            </p>
-            <p>
-                Installer SASS :<br />
-                <span class="code">gem install sass</span>
-            </p>
+            <p>Installer ruby :</p>
+            <p class="instLink">Utilisez <a href="https://rubyinstaller.org/">ruby installer</a></p>
+            <p>Installer SASS :</p>
+            <p class="code">gem install sass</p>
         </div>
     </section>
     <section class="tuto">
         <h2>Compiler un fichier .scss en .css</h2>
-        <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss.<br />
-            Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande :<br />
-            <span class="code">sass --watch style.scss:style.css</span>
-        </p>
+        <div class="textBlock">
+            <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss.<br />
+            Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande :</p>
+            <p class="code">sass --watch style.scss:style.css</p>
+        </div> 
+    </section>
+    <section class="syntax">
+        <h2>La syntaxe SCSS</h2>
+        <div class="textBlock">
+            <p>L’une des caractéristiques les plus intéressantes de Sass est la possibilité d’imbriquer des règles. Dans un fichier
+            CSS habituel, les règles (sélecteur/propriété/valeur) sont listées à la suite et chaque sélecteur doit inclure tous
+            ses éléments :</p>
+            <p class="code">
+                //code CSS habituel<br />
+                body.home .media-unit {<br />
+                <span class="tab"> border: 1px solid #ccc;</span><br />
+                <span class="tab">background-color: #fff</span><br />
+                }<br />
+                body.home .media-unit .right {<br />
+                <span class="tab">border-left: 1px solid #ccc;</span><br />
+                }<br />
+                body.home .media-unit .right h1 {<br />
+                <span class="tab">font-size: 24px;</span><br />
+                }
+            </p>
+        </div>
+    </section>
+    <section class="variables">
+        <h2>Utiliser les variables en Sass</h2>
+        <div class="textBlock">
+            <p>La déclaration de variables est très simple en Sass, la syntaxe est celle ci :</p>
+            <p class="code">$maVariableCouleur: #be608b</p>
+            <p>Vous pouvez déclarer votre variable au début de votre ficher .scss ou dans un fichier .scss distinct, dédié à contenir toutes vos variables (comme nous le verrons au chapitre consacré aux imports.</p>
+            <p>Vous pouvez ensuite l'appeler n'importe où, et autant de fois que vous le voulez, dans votre SCSS de la manière suivante :</p>
+            <p class="code">
+                h1{<br />
+                    <span class="tab">color: $maVariableCouleur;</span> <br />
+                }
+            </p>
+        </div>
     </section>
 </body>
 </html>
