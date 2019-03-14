@@ -6,22 +6,53 @@
   font-family: "code";
   src: url("../fonts/CodeSaver-Regular.otf");
 }
+@font-face {
+  font-family: "angelina";
+  src: url("../fonts/farewell_angelina_display_sample.ttf");
+}
 h1 {
-  font-family: "sunday";
+  font-family: "sunday", serif;
   font-weight: 100;
   font-size: 7em;
+  color: #fefefd;
+  text-shadow: 0 0 10px #be608b;
 }
 
 h2 {
   padding: 15px 0;
-  background-color: rgba(190, 96, 139, 0.5);
+  background-color: rgba(190, 96, 139, 0.8);
   text-align: center;
   width: 100%;
   border-radius: 5px;
+  color: #fefefd;
+}
+
+a {
+  color: #500528;
+}
+
+a:hover {
+  text-shadow: 0 0 5px #be608b;
 }
 
 .tab {
   margin-left: 2rem;
+}
+
+.tab2 {
+  margin-left: 4rem;
+}
+
+.tab3 {
+  margin-left: 6rem;
+}
+
+.tab4 {
+  margin-left: 8rem;
+}
+
+.bottomSpace {
+  display: block;
 }
 
 .cont1 {
@@ -32,9 +63,12 @@ h2 {
   grid-gap: 1.5em;
   max-width: 95%;
   margin: auto;
-  background-image: linear-gradient(rgba(90, 90, 90, 0.5), rgba(224, 224, 224, 0.5)), url(../images/simplifying-css-visual-studio-sass-v1.jpg);
+  background-image: linear-gradient(rgba(71, 71, 71, 0.7), rgba(70, 70, 70, 0.7)), url(../images/simplifying-css-visual-studio-sass-v1.jpg);
   background-size: cover;
   background-attachment: fixed;
+  font-family: "angelina", serif;
+  font-size: 1.3em;
+  color: bisque;
 }
 
 .cont2 {
@@ -92,7 +126,7 @@ header .headerTop {
 }
 .topnav a:hover {
   background-color: rgba(190, 96, 139, 0.2);
-  color: black;
+  color: bisque;
 }
 .topnav .icon {
   display: none;
@@ -128,12 +162,28 @@ header .headerTop {
 
 .code {
   font-family: "code";
+  font-size: 1rem;
   color: antiquewhite;
   background-color: rgba(42, 42, 42, 0.6);
   border: 1px solid #be608b;
   border-radius: 5px;
   margin: 10px 5px;
   padding: 5px;
+}
+
+.cont3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "old new";
+  grid-gap: 1.5em;
+}
+
+.old {
+  grid-area: old;
+}
+
+.new {
+  grid-area: new;
 }
 
 @media screen and (max-width: 900px) {

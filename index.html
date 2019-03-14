@@ -51,9 +51,10 @@
     <section class="tuto">
         <h2>Compiler un fichier .scss en .css</h2>
         <div class="textBlock">
-            <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss.<br />
-            Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande :</p>
+            <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss. Il est inutile de créer un fichier style.css : Sass s'en chargera !<br />
+            Les navigateurs ne lisant pas les fichiers .scss, il nous faut le compiler en css, avec cette commande (qu'on lance depuis le dossier dans lequel on a créé notre style.scss) :</p>
             <p class="code">sass --watch style.scss:style.css</p>
+            <p><b>Important</b> : C'est bien sur votre style.css et non style.scss que votre balise meta stylesheet doit pointer. Souvenez-vous que votre navigateur ne lit pas le scss !</p>
         </div> 
     </section>
     <section class="syntax">
@@ -61,20 +62,40 @@
         <div class="textBlock">
             <p>L’une des caractéristiques les plus intéressantes de Sass est la possibilité d’imbriquer des règles. Dans un fichier
             CSS habituel, les règles (sélecteur/propriété/valeur) sont listées à la suite et chaque sélecteur doit inclure tous
-            ses éléments :</p>
-            <p class="code">
-                //code CSS habituel<br />
-                body.home .media-unit {<br />
-                <span class="tab"> border: 1px solid #ccc;</span><br />
-                <span class="tab">background-color: #fff</span><br />
-                }<br />
-                body.home .media-unit .right {<br />
-                <span class="tab">border-left: 1px solid #ccc;</span><br />
-                }<br />
-                body.home .media-unit .right h1 {<br />
-                <span class="tab">font-size: 24px;</span><br />
-                }
-            </p>
+            ses éléments</p>
+            <p>Avec l’imbrication, nous pouvons écrire un code SCSS qui est à la fois non redondant et plus facile à suivre :</p>
+            <div class="cont3">
+                <p class="code old">
+                    <span class="bottomSpace">//code CSS habituel</span><br />
+                    body.home .media-unit {<br />
+                    <span class="tab"> border: 1px solid #ccc;</span><br />
+                    <span class="tab">background-color: #fff</span><br />
+                    }<br />
+                    body.home .media-unit .right {<br />
+                    <span class="tab">border-left: 1px solid #ccc;</span><br />
+                    }<br />
+                    body.home .media-unit .right h1 {<br />
+                    <span class="tab">font-size: 24px;</span><br />
+                    }
+                </p>
+                <p class="code new">
+                    <span class="bottomSpace">// code imbriqué</span><br />
+                    body.home{<br />
+                        <span class="tab">.media-unit{</span><br />
+                            <span class="tab2">border: 1px solid #ccc;</span><br />
+                            <span class="tab2">background-color: #fff;</span><br />
+                            <span class="tab2">.right{</span><br />
+                                <span class="tab3">border-left: 1px solid #ccc;</span><br />
+                                <span class="tab3">h1{</span><br />
+                                    <span class="tab4">font-size: 24px;</span><br />
+                                <span class="tab3">}</span><br />
+                            <span class="tab2">}</span><br />
+                        <span class="tab">}</span><br />
+                    }
+                </p>
+            </div>
+            <p>Le processeur transforme ensuite ce code en CSS normal, identique à la version précédente.<br />
+            Malheureusement, la syntaxe SCSS plus courte ne réduira donc pas la taille de vos fichiers CSS. Mais l’imbrication vous aidera à avoir un code propre, logique et bien organisé, qui devrait être plus facile à entretenir au cours du temps.</p>
         </div>
     </section>
     <section class="variables">
