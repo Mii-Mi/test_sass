@@ -58,7 +58,9 @@ a:hover{
                          "tuto"
                          "syntax"
                          "variables"
-                         "partiels";
+                         "partiels"
+                         "mixins"
+                         "footer";
     grid-gap: 1.5em;
     max-width: 95%;
     margin: auto;
@@ -150,6 +152,13 @@ header{
 }
 .partiels{
     grid-area: partiels;
+}
+.mixins{
+    grid-area: mixins;
+}
+.footer{
+    grid-area: footer;
+    margin-bottom: 1em;
 }
 .textBlock{
     border: 1px solid $pinklogo;
