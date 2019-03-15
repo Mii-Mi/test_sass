@@ -17,16 +17,18 @@
             <h1>Tutoriel Sass</h1>
             <div class="topnav" id="myTopnav">
                 <a href="#home" class="active">Home</a>
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+                <a href="#install">Installation</a>
+                <a href="#tuto">Lancement</a>
+                <a href="#syntax">Syntaxe</a>
+                <a href="#variables">Variables</a>
+                <a href="#partiels">Partiels</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
             </div>
         </div>
     </header>
-    <section class="cont2">
+    <section class="cont2" id="install">
         <h2>installer SASS</h2>
         <div class="linux">
             <h3>Sur Ubuntu</h3>
@@ -48,7 +50,7 @@
             <p class="code">gem install sass</p>
         </div>
     </section>
-    <section class="tuto">
+    <section class="tuto" id="tuto">
         <h2>Compiler un fichier .scss en .css</h2>
         <div class="textBlock">
             <p>On crée un fichier style.scss, dans lequel on va écrire notre code en scss. Il est inutile de créer un fichier style.css : Sass s'en chargera !<br />
@@ -57,7 +59,7 @@
             <p><b>Important</b> : C'est bien sur votre style.css et non style.scss que votre balise meta stylesheet doit pointer. Souvenez-vous que votre navigateur ne lit pas le scss !</p>
         </div> 
     </section>
-    <section class="syntax">
+    <section class="syntax" id="syntax">
         <h2>La syntaxe SCSS</h2>
         <div class="textBlock">
             <p>L’une des caractéristiques les plus intéressantes de Sass est la possibilité d’imbriquer des règles. Dans un fichier
@@ -98,7 +100,7 @@
             Malheureusement, la syntaxe SCSS plus courte ne réduira donc pas la taille de vos fichiers CSS. Mais l’imbrication vous aidera à avoir un code propre, logique et bien organisé, qui devrait être plus facile à entretenir au cours du temps.</p>
         </div>
     </section>
-    <section class="variables">
+    <section class="variables" id="variables">
         <h2>Utiliser les variables en Sass</h2>
         <div class="textBlock">
             <p>La déclaration de variables est très simple en Sass, la syntaxe est celle ci :</p>
@@ -110,6 +112,60 @@
                     <span class="tab">color: $maVariableCouleur;</span> <br />
                 }
             </p>
+        </div>
+    </section>
+    <section class="partiels" id="partiels">
+        <h2>Utiliser les partiels avec @import</h2>
+        <div class="textBlock">
+            <p>La directive @import existe déjà dans CSS pour lier entre elles des feuilles de styles externes, et certains
+            développeurs aiment l’utiliser pour organiser une feuille de style complexe en morceaux découpés logiquement. Par
+            exemple, notre fichier <span class="codeSpan">style_principal.css</span> pourrait ne contenir que des expressions <span class="codeSpan">@import</span> liant des feuilles de style appliquées spécifiquement à chaque page d’un site.</p>
+            <p>Cependant, ce n’est pas considéré comme une bonne pratique en termes de performance, car chacun de ces imports est un fichier séparé, qui déclenche une requête et doit être chargé par le navigateur, ce qui peut ralentir le chargement de votre site</p>
+            <p>Sass est utile ici car il scinde les feuilles de style dans des partiels. On utilise là aussi la commande @import (sous une forme raccourcie), et quand vos fichiers SCSS sont processés, le contenu des partiels est inséré directement dans le CSS final.</p>
+            <div class="cont4">
+                <p class="code old">
+                    <span class="bottomSpace">// Syntaxe d'importation dans CSS</span><br />
+                    @import url(’/partage/global.css’);<br />
+                    @import url(’/pages/accueil.css’);<br />
+                    @import url(’/pages/blog.css’);
+                </p>
+                <p class="code new">
+                    <span class="bottomSpace">// Syntaxe d'importation dans SASS</span><br />
+                    @import ’/partage/global’;<br />
+                    @import ’/pages/accueil’;<br />
+                    @import ’/pages/blog’;
+                </p>
+            </div>
+            <p>Cela donne un fichier CSS unique contenant tous vos styles, et donc une requête unique. Pour optimiser encore le temps de chargement, Sass peut aussi compacter automatiquement le fichier de sortie CSS en éliminant tous les espaces inutiles et les sauts de ligne.</p>
+        </div>        
+    </section>
+    <section class="mixins" id="mixins">
+        <h2>Les mixins</h2>
+        <div class="textBlock">
+            <p>Les Mixins sont des ensembles de propriétés ou de règles que vous pouvez inclure, ou “mixer”, dans d’autres règles. Vous les définissez en utilisant le mot clé <span class="codeSpan">@mixin</span> et vous les intégrez en utilisant le mot clé <span class="codeSpan">@include</span>.</p>
+            <p>Dans cet exemple, je demande à Sass d’appliquer toutes les propriétés contenues dans le mixin <span class="codeSpan">texte-surligne-gras</span> à tous les éléments span situés à l’intérieur de <span class="codeSpan">.resultat-surligne</span>.</p>
+            <p>Une fois défini le mixin, vous pouvez le réutiliser n’importe où dans le même fichier. Ici, je veux que les éléments de classe surligne aient également la couleur et le font weight spécifiés par le mixin.</p>
+            <div class="cont5">
+                <p class="code old">
+                    <span class="bottomSpace">// exemple de mixin</span><br />
+                    $couleur-surlignage: #ffa;<br />
+                    @mixin texte-surligne-gras {<br />
+                        <span class="tab">font-weight: bold;</span><br />
+                        <span class="tab">background-color: $couleur-surlignage;</span><br />
+                    }<br />
+                    .resultat-surligne {<br />
+                        <span class="tab">span {</span><br />
+                            <span class="tab2">@include texte-surligne-gras;</span><br />
+                        <span class="tab">}</span><br />
+                    }
+                </p>
+                <p class="code new">
+                    <span class="bottomSpace">//Exemple de réutilisation du mixin</span><br />
+                    .surligne {<br />
+                        <span class="tab">@include texte-surligne-gras;</span><br />
+                    }
+                </p>
+            </div>
         </div>
     </section>
 </body>
