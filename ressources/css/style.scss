@@ -52,7 +52,7 @@ a:hover{
 .cont1{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: [row-1-start] auto [row-1-end row-2-start] auto [row-2-end row-3-start] auto [row-3-end row-4-start] auto [row-4-end row-5-start] auto [row-5-end];
+    grid-template-rows: [row-1-start] auto [row-1-end row-2-start] auto [row-2-end row-3-start] auto [row-3-end row-4-start] auto [row-4-end row-5-start] auto [row-5-end row-6-start] auto [row-6-end row-7-start] auto [row-7-end row-8-start] fit-content(1000px) [row-8-end];
     grid-template-areas: "header"
                          "install"
                          "tuto"
@@ -159,6 +159,9 @@ header{
 .footer{
     grid-area: footer;
     margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .textBlock{
     border: 1px solid $pinklogo;
